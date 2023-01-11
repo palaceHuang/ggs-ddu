@@ -1,0 +1,435 @@
+工控 soar-app-frame 211116里程碑
+
+D:\TEST-TO-DELETE\GK-FRAME-211116里程碑
+│  package.json
+│  
+├─app
+│  ├─api
+│  │  ├─controllers
+│  │  │      SafAuthController.js
+│  │  │      SafIntegrationController.js
+│  │  │      SafStorageController.js
+│  │  │      SafUpgradeController.js
+│  │  │      SafWebsocketsController.js
+│  │  │      
+│  │  ├─policies
+│  │  │      freshSession.js
+│  │  │      isAuthenticated.js
+│  │  │      
+│  │  ├─responses
+│  │  │      badRequest.js
+│  │  │      created.js
+│  │  │      forbidden.js
+│  │  │      notFound.js
+│  │  │      ok.js
+│  │  │      serverError.js
+│  │  │      
+│  │  └─services
+│  │          SafRequestService.js
+│  │          
+│  ├─config
+│  │  │  bootstrap.js
+│  │  │  config.js
+│  │  │  
+│  │  └─ssl
+│  │          cacert.crt
+│  │          client.crt
+│  │          client.key
+│  │          
+│  ├─lib
+│  │  │  appFrame.js
+│  │  │  bootstrapService.js
+│  │  │  downstreamSockets.js
+│  │  │  upgradeService.js
+│  │  │  upstreamSockets.js
+│  │  │  
+│  │  └─private
+│  │          getIpMac.js
+│  │          sails.io.js
+│  │          
+│  ├─views
+│  │      .keepme
+│  │      
+│  └─vue
+│      │  .babelrc
+│      │  app.png
+│      │  app.vue
+│      │  empty-module.js
+│      │  index.html
+│      │  index.js
+│      │  main.js
+│      │  package.json
+│      │  package_nw.json
+│      │  scripts.js
+│      │  styles.js
+│      │  template.json
+│      │  webpack.config.js
+│      │  
+│      ├─assets
+│      │  ├─css
+│      │  │      bootstrap-table.css
+│      │  │      jquery.range.css
+│      │  │      
+│      │  ├─fonts
+│      │  │      阿里巴巴矢量图iconfont信息
+│      │  │      
+│      │  ├─image
+│      │  │      产品图片信息
+│      │  │      
+│      │  ├─js
+│      │  │      backend.js
+│      │  │      bootstrap-datetimepicker.js
+│      │  │      bootstrap-datetimepicker.zh-CN.js
+│      │  │      bootstrap-table-zh-CN.js
+│      │  │      bootstrap-table.js
+│      │  │      idle.js
+│      │  │      jquery.range.js
+│      │  │      jquery.rest.min.js
+│      │  │      notification.js
+│      │  │      progressbar.js
+│      │  │      public.js
+│      │  │      ssl.js
+│      │  │      toastr.js
+│      │  │      tray.js
+│      │  │      upload.js
+│      │  │      window.js
+│      │  │      
+│      │  └─less
+│      │      │  common.less
+│      │      │  reset.less
+│      │      │  skins.less
+│      │      │  
+│      │      └─skins
+│      │              skin_blue.less
+│      │              skin_grey.less
+│      │              skin_orange.less
+│      │              
+│      ├─components
+│      │  ├─apply
+│      │  │      apply.vue
+│      │  │      applyModal.vue
+│      │  │      
+│      │  ├─approveManage
+│      │  │  │  approveManage.vue
+│      │  │  │  
+│      │  │  ├─approve
+│      │  │  │      uninstallApprove.vue
+│      │  │  │      usbApprove.vue
+│      │  │  │      whitelistApprove.vue
+│      │  │  │      
+│      │  │  └─modal
+│      │  │          approveModal.vue
+│      │  │          distribute.vue
+│      │  │          
+│      │  ├─baselineCheck
+│      │  │      baselineCheck.vue
+│      │  │      
+│      │  ├─empty
+│      │  │      empty.vue
+│      │  │      
+│      │  ├─header
+│      │  │  │  header.vue
+│      │  │  │  
+│      │  │  ├─changePassword
+│      │  │  │      changePassword.vue
+│      │  │  │      
+│      │  │  ├─loginModal
+│      │  │  │      loginModal.vue
+│      │  │  │      
+│      │  │  ├─notifyMessage
+│      │  │  │      notifyMessage.vue
+│      │  │  │      
+│      │  │  └─userInfo
+│      │  │          userInfo.vue
+│      │  │          
+│      │  ├─index
+│      │  │      index.vue
+│      │  │      
+│      │  ├─localUSB
+│      │  │      addLocalUSB.vue
+│      │  │      localUSB.vue
+│      │  │      
+│      │  ├─localwhitelist
+│      │  │      addWhiteList.vue
+│      │  │      localWhitelist.vue
+│      │  │      
+│      │  ├─login
+│      │  │      login.vue
+│      │  │      
+│      │  ├─logManage
+│      │  │      managerOperaLog.vue
+│      │  │      terminalRunLog.vue
+│      │  │      
+│      │  ├─SafeStore
+│      │  │      SafeStore.vue
+│      │  │      
+│      │  ├─systemManage
+│      │  │  ├─licenseManage
+│      │  │  │      licenseManage.vue
+│      │  │  │      
+│      │  │  ├─systemConfig
+│      │  │  │      recovery.vue
+│      │  │  │      systemConfig.vue
+│      │  │  │      
+│      │  │  └─upgradeManage
+│      │  │          upgradePackManage.vue
+│      │  │          uploadFile.vue
+│      │  │          
+│      │  ├─terminalDataMaintenance
+│      │  │      TerminalDataMaintenance.vue
+│      │  │      
+│      │  ├─terminalManagement
+│      │  │  │  safeStoreManage.vue
+│      │  │  │  terminalBaseline.vue
+│      │  │  │  terminalGrouping.vue
+│      │  │  │  terminalInfo.vue
+│      │  │  │  terminalStatistics.vue
+│      │  │  │  terminalStrategy.vue
+│      │  │  │  terminalWhiteList.vue
+│      │  │  │  usbManage.vue
+│      │  │  │  
+│      │  │  ├─public
+│      │  │  │      addLocalUSB.vue
+│      │  │  │      addWhiteList.vue
+│      │  │  │      download.vue
+│      │  │  │      myTree.vue
+│      │  │  │      
+│      │  │  └─terminalStrategyModel
+│      │  │          excment.vue
+│      │  │          excmentTer.vue
+│      │  │          scriptWlist.vue
+│      │  │          terWlist.vue
+│      │  │          zuWlist.vue
+│      │  │          
+│      │  └─userManage
+│      │          userManage.vue
+│      │          
+│      ├─public
+│      │  │  plugIns.js
+│      │  │  publicComponents.js
+│      │  │  
+│      │  ├─plug-ins
+│      │  │      addLog.js
+│      │  │      notify.js
+│      │  │      util.js
+│      │  │      
+│      │  └─public-components
+│      │          export-btn.vue
+│      │          filename.vue
+│      │          import-data.vue
+│      │          item-config.vue
+│      │          progress-circle.vue
+│      │          radio.vue
+│      │          sbr-checkbox.vue
+│      │          search-condition.vue
+│      │          search-ip.vue
+│      │          search-keys.vue
+│      │          search-time.vue
+│      │          stat-time.vue
+│      │          title-config.vue
+│      │          tree-menu.vue
+│      │          vm-modal.vue
+│      │          vm-select.vue
+│      │          vm-title.vue
+│      │          
+│      ├─router
+│      │      router.js
+│      │      
+│      ├─server
+│      │  │  .babelrc
+│      │  │  app.png
+│      │  │  app.vue
+│      │  │  index.html
+│      │  │  main.js
+│      │  │  package.json
+│      │  │  package.json.oeminfo
+│      │  │  package_nw.json
+│      │  │  scripts.js
+│      │  │  styles.js
+│      │  │  webpack.config.js
+│      │  │  
+│      │  ├─assets
+│      │  │  ├─css
+│      │  │  │      bootstrap-table.css
+│      │  │  │      jquery.range.css
+│      │  │  │      
+│      │  │  ├─fonts
+│      │  │  │      iconfont.css
+│      │  │  │      iconfont.eot
+│      │  │  │      iconfont.svg
+│      │  │  │      iconfont.ttf
+│      │  │  │      iconfont.woff
+│      │  │  │      
+│      │  │  ├─image
+│      │  │  │      erweima.png
+│      │  │  │      left-img.png
+│      │  │  │      line_conn.png
+│      │  │  │      loading.gif
+│      │  │  │      metro.png
+│      │  │  │      p100.png
+│      │  │  │      p16.png
+│      │  │  │      p37.png
+│      │  │  │      pic_loginbg.png
+│      │  │  │      pic_shenqing01.png
+│      │  │  │      pic_shenqing02.png
+│      │  │  │      pic_shenqing03.png
+│      │  │  │      pic_xkz.png
+│      │  │  │      system.png
+│      │  │  │      
+│      │  │  ├─js
+│      │  │  │      backend.js
+│      │  │  │      bootstrap-datetimepicker.js
+│      │  │  │      bootstrap-datetimepicker.zh-CN.js
+│      │  │  │      bootstrap-table-zh-CN.js
+│      │  │  │      bootstrap-table.js
+│      │  │  │      compatible.js
+│      │  │  │      flexibility.js
+│      │  │  │      idle.js
+│      │  │  │      index.js
+│      │  │  │      jquery.range.js
+│      │  │  │      jquery.rest.min.js
+│      │  │  │      notification.js
+│      │  │  │      polyfill.min.js
+│      │  │  │      progressbar.js
+│      │  │  │      public.js
+│      │  │  │      serverAddress.js
+│      │  │  │      ssl.js
+│      │  │  │      toastr.js
+│      │  │  │      tray.js
+│      │  │  │      upload.js
+│      │  │  │      window.js
+│      │  │  │      
+│      │  │  └─less
+│      │  │      │  common.less
+│      │  │      │  reset.less
+│      │  │      │  skins.less
+│      │  │      │  
+│      │  │      └─skins
+│      │  │              skin_blue.less
+│      │  │              skin_grey.less
+│      │  │              skin_orange.less
+│      │  │              
+│      │  ├─components
+│      │  │  ├─approveManage
+│      │  │  │  │  approveManage.vue
+│      │  │  │  │  
+│      │  │  │  ├─approve
+│      │  │  │  │      uninstallApprove.vue
+│      │  │  │  │      usbApprove.vue
+│      │  │  │  │      whitelistApprove.vue
+│      │  │  │  │      
+│      │  │  │  └─modal
+│      │  │  │          approveModal.vue
+│      │  │  │          distribute.vue
+│      │  │  │          
+│      │  │  ├─empty
+│      │  │  │      empty.vue
+│      │  │  │      
+│      │  │  ├─header
+│      │  │  │  │  header.vue
+│      │  │  │  │  
+│      │  │  │  ├─changePassword
+│      │  │  │  │      changePassword.vue
+│      │  │  │  │      
+│      │  │  │  ├─notifyMessage
+│      │  │  │  │      notifyMessage.vue
+│      │  │  │  │      
+│      │  │  │  └─userInfo
+│      │  │  │          userInfo.vue
+│      │  │  │          
+│      │  │  ├─index
+│      │  │  │      index.vue
+│      │  │  │      
+│      │  │  ├─login
+│      │  │  │      login.vue
+│      │  │  │      
+│      │  │  ├─logManage
+│      │  │  │      managerOperaLog.vue
+│      │  │  │      terminalRunLog.vue
+│      │  │  │      
+│      │  │  ├─systemManage
+│      │  │  │  ├─licenseManage
+│      │  │  │  │      licenseManage.vue
+│      │  │  │  │      
+│      │  │  │  ├─systemConfig
+│      │  │  │  │      recovery.vue
+│      │  │  │  │      systemConfig.vue
+│      │  │  │  │      
+│      │  │  │  └─upgradeManage
+│      │  │  │          upgradePackManage.vue
+│      │  │  │          uploadFile.vue
+│      │  │  │          
+│      │  │  ├─terminalManagement
+│      │  │  │  │  terminalGrouping.vue
+│      │  │  │  │  terminalInfo.vue
+│      │  │  │  │  terminalStrategy.vue
+│      │  │  │  │  usbManage.vue
+│      │  │  │  │  whitelistManage.vue
+│      │  │  │  │  
+│      │  │  │  ├─public
+│      │  │  │  │      addLocalUSB.vue
+│      │  │  │  │      download.vue
+│      │  │  │  │      myTree.vue
+│      │  │  │  │      
+│      │  │  │  └─terminalStrategyModel
+│      │  │  │          excment.vue
+│      │  │  │          excmentTer.vue
+│      │  │  │          scriptWlist.vue
+│      │  │  │          terWlist.vue
+│      │  │  │          zuWlist.vue
+│      │  │  │          
+│      │  │  └─userManage
+│      │  │          userManage.vue
+│      │  │          
+│      │  ├─public
+│      │  │  │  plugIns.js
+│      │  │  │  publicComponents.js
+│      │  │  │  
+│      │  │  ├─plug-ins
+│      │  │  │      addLog.js
+│      │  │  │      notify.js
+│      │  │  │      util.js
+│      │  │  │      
+│      │  │  └─public-components
+│      │  │          export-btn.vue
+│      │  │          filename.vue
+│      │  │          item-config.vue
+│      │  │          progress-circle.vue
+│      │  │          radio.vue
+│      │  │          search-condition.vue
+│      │  │          search-ip.vue
+│      │  │          search-keys.vue
+│      │  │          search-time.vue
+│      │  │          title-config.vue
+│      │  │          tree-menu.vue
+│      │  │          vm-modal.vue
+│      │  │          vm-select.vue
+│      │  │          vm-title.vue
+│      │  │          
+│      │  ├─router
+│      │  │      router.js
+│      │  │      
+│      │  └─vuex
+│      │          action.js
+│      │          getters.js
+│      │          mutations.js
+│      │          state.js
+│      │          store.js
+│      │          
+│      ├─utils
+│      │      addOrRemoveAttr.js
+│      │      titleTips.js
+│      │      
+│      └─vuex
+│              action.js
+│              getters.js
+│              mutations.js
+│              state.js
+│              store.js
+│              
+├─docs
+│      shiti3.14.vpp
+│      
+└─tests
+        download.js
+        

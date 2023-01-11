@@ -1,0 +1,489 @@
+密标 soar-app-frame 210322
+
+D:\TEST-TO-DELETE\SOAR-APP-FRAME
+│  package.json
+│  
+├─app
+│  ├─api
+│  │  ├─controllers
+│  │  │      SafAuthController.js
+│  │  │      SafIntegrationController.js
+│  │  │      SafStorageController.js
+│  │  │      SafUpgradeController.js
+│  │  │      SafWebsocketsController.js
+│  │  │      
+│  │  ├─policies
+│  │  │      isAuthenticated.js
+│  │  │      
+│  │  ├─responses
+│  │  │      badRequest.js
+│  │  │      created.js
+│  │  │      forbidden.js
+│  │  │      notFound.js
+│  │  │      ok.js
+│  │  │      serverError.js
+│  │  │      
+│  │  └─services
+│  │          SafRequestService.js
+│  │          
+│  ├─config
+│  │  │  bootstrap.js
+│  │  │  config.js
+│  │  │  
+│  │  └─ssl
+│  │          cacert.crt
+│  │          client.crt
+│  │          client.key
+│  │          
+│  ├─lib
+│  │  │  appFrame.js
+│  │  │  bootstrapService.js
+│  │  │  downstreamSockets.js
+│  │  │  upgradeService.js
+│  │  │  upstreamSockets.js
+│  │  │  
+│  │  └─private
+│  │          getIpMac.js
+│  │          sails.io.js
+│  │          
+│  ├─views
+│  │      .keepme
+│  │      
+│  └─vue
+│      │  .babelrc
+│      │  app.png
+│      │  app.vue
+│      │  empty-module.js
+│      │  index.html
+│      │  index.js
+│      │  key.private
+│      │  main.js
+│      │  package.json
+│      │  package_nw.json
+│      │  scripts.js
+│      │  styles.js
+│      │  template.json
+│      │  webpack.config.js
+│      │  
+│      ├─assets
+│      │  ├─css
+│      │  │      bootstrap-table.css
+│      │  │      common.css
+│      │  │      jsoneditor.min.css
+│      │  │      treeTable.css
+│      │  │      
+│      │  ├─fonts
+│      │  │      阿里巴巴矢量图iconfont信息
+│      │  │      
+│      │  ├─image
+│      │  │      产品图片信息
+│      │  │      
+│      │  ├─js
+│      │  │  │  backend.js
+│      │  │  │  bootstrap-datetimepicker.js
+│      │  │  │  bootstrap-datetimepicker.zh-CN.js
+│      │  │  │  bootstrap-table-zh-CN.js
+│      │  │  │  bootstrap-table.js
+│      │  │  │  echarts.js
+│      │  │  │  edit.js
+│      │  │  │  html2canvas.js
+│      │  │  │  idle.js
+│      │  │  │  inspinia.js
+│      │  │  │  jquery.rest.min.js
+│      │  │  │  jspdf.debug.js
+│      │  │  │  MarkEdit.js
+│      │  │  │  notification.js
+│      │  │  │  progressbar.js
+│      │  │  │  ssl.js
+│      │  │  │  toastr.js
+│      │  │  │  tray.js
+│      │  │  │  upload.js
+│      │  │  │  window.js
+│      │  │  │  
+│      │  │  └─plugins
+│      │  │      ├─jqueryRest
+│      │  │      │      jquery.rest.min.js
+│      │  │      │      
+│      │  │      ├─metisMenu
+│      │  │      │      jquery.metisMenu.js
+│      │  │      │      
+│      │  │      └─slimscroll
+│      │  │              jquery.slimscroll.min.js
+│      │  │              
+│      │  └─less
+│      │      │  common.less
+│      │      │  reset.less
+│      │      │  skins.less
+│      │      │  
+│      │      └─skins
+│      │              皮肤信息
+│      │              
+│      ├─components
+│      │  ├─applyProcess
+│      │  │  ├─checkIn
+│      │  │  │      checkinTable.vue
+│      │  │  │      
+│      │  │  ├─checkOut
+│      │  │  │      checkoutTable.vue
+│      │  │  │      
+│      │  │  ├─fileAsign
+│      │  │  │      asignTable.vue
+│      │  │  │      
+│      │  │  ├─fileDecipher
+│      │  │  │      decipherTable.vue
+│      │  │  │      
+│      │  │  ├─flowCommon
+│      │  │  │      applyProcess.vue
+│      │  │  │      approvalForm.vue
+│      │  │  │      controlProperty.vue
+│      │  │  │      decipherMarkEdit.vue        右键密级解除申请
+│      │  │  │      formalMarkEdit.vue  右键正式定密申请、右键文件签发申请、右键密级变更申请、右键文件签入申请
+│      │  │  │      formalPreview.vue
+│      │  │  │      markChange.vue
+│      │  │  │      markView.vue
+│      │  │  │      selectFile.vue
+│      │  │  │      selectFixedPerson.vue       右键标志解除申请、右键文件签出申请
+│      │  │  │      
+│      │  │  ├─formalSecret
+│      │  │  │      formalTable.vue
+│      │  │  │      
+│      │  │  ├─frontFix
+│      │  │  │      frontFix.vue        右键预定密申请
+│      │  │  │      
+│      │  │  ├─markChange
+│      │  │  │      changeTable.vue
+│      │  │  │      
+│      │  │  ├─markEdit
+│      │  │  │      frontFix.vue        右键预定密标志编辑
+│      │  │  │      
+│      │  │  └─markRemove
+│      │  │          markRemTable.vue
+│      │  │          
+│      │  ├─count
+│      │  │  │  businessSecret.vue
+│      │  │  │  download-modal.vue
+│      │  │  │  electronicDoc.vue
+│      │  │  │  fileTrace.vue
+│      │  │  │  secretGroup.vue
+│      │  │  │  stateSecret.vue
+│      │  │  │  theSecret.vue
+│      │  │  │  
+│      │  │  ├─commonComponent
+│      │  │  │      search-organ.vue
+│      │  │  │      
+│      │  │  └─logManagement
+│      │  │          fix.css
+│      │  │          logManagement.vue
+│      │  │          
+│      │  ├─custerManage
+│      │  │      commonlygroups.vue
+│      │  │      
+│      │  ├─empty
+│      │  │      empty.vue
+│      │  │      
+│      │  ├─filebackup
+│      │  │      backup.vue
+│      │  │      lostmanage.vue
+│      │  │      recover.vue
+│      │  │      
+│      │  ├─fileManage
+│      │  │  └─fileManage
+│      │  │          cloudFile.vue
+│      │  │          localFile.vue
+│      │  │          remoteFile.vue
+│      │  │          
+│      │  ├─header
+│      │  │  │  header.vue
+│      │  │  │  
+│      │  │  └─subComponet
+│      │  │      │  head-user.vue
+│      │  │      │  
+│      │  │      ├─settings
+│      │  │      │      about-us.vue
+│      │  │      │      
+│      │  │      └─userInfo
+│      │  │              login-off.vue
+│      │  │              modify-password.vue
+│      │  │              
+│      │  ├─index
+│      │  │      index.vue
+│      │  │      
+│      │  ├─login
+│      │  │      changePIN.vue
+│      │  │      initialize-middleware.vue
+│      │  │      inputIp.vue
+│      │  │      login.vue
+│      │  │      online-middleware.vue
+│      │  │      outline-middleware.vue
+│      │  │      
+│      │  ├─main
+│      │  │      main.vue
+│      │  │      
+│      │  ├─schedule
+│      │  │  ├─checkIn
+│      │  │  │      checkIn.vue
+│      │  │  │      
+│      │  │  ├─checkOut
+│      │  │  │      checkOut.vue
+│      │  │  │      
+│      │  │  ├─filesDecrypt
+│      │  │  │      filesDecrypt.vue
+│      │  │  │      
+│      │  │  ├─filesIssue
+│      │  │  │      filesIssue.vue
+│      │  │  │      
+│      │  │  ├─markChange
+│      │  │  │      markChange.vue
+│      │  │  │      
+│      │  │  ├─markOff
+│      │  │  │      markOff.vue
+│      │  │  │      
+│      │  │  ├─scheduleCommon
+│      │  │  │      audit.vue   流程中的审批
+│      │  │  │      changeMarkEditCopy.vue
+│      │  │  │      form.vue
+│      │  │  │      secretTable.vue
+│      │  │  │      
+│      │  │  ├─secretApproval
+│      │  │  │      secretApproval.vue
+│      │  │  │      
+│      │  │  └─secretAudit
+│      │  │          secretAudit.vue
+│      │  │          
+│      │  ├─secret
+│      │  │  │  addBasisGroup.vue
+│      │  │  │  checked.js
+│      │  │  │  importFail.vue
+│      │  │  │  newBasis.vue
+│      │  │  │  newSecretDot.vue
+│      │  │  │  
+│      │  │  ├─defineSecret
+│      │  │  │      defineSecret.vue    定密依据管理
+│      │  │  │      
+│      │  │  └─secretDot
+│      │  │          secretDot.vue
+│      │  │          
+│      │  ├─setting
+│      │  │      edit-modal.vue
+│      │  │      setting.vue
+│      │  │      
+│      │  ├─steganographyTool
+│      │  │      steganographyTool.vue
+│      │  │      
+│      │  ├─strategyConfig
+│      │  │      frontTemplete.vue
+│      │  │      
+│      │  ├─systemConfig
+│      │  │  │  alertServer.vue
+│      │  │  │  loginTypeConfig.vue
+│      │  │  │  pcinfo.vue
+│      │  │  │  serviceInterface.vue
+│      │  │  │  systemConfig.vue
+│      │  │  │  timeTaskConfig.vue
+│      │  │  │  transportationStrategy.vue
+│      │  │  │  
+│      │  │  ├─alertServerCon
+│      │  │  │      alertEmail.vue
+│      │  │  │      email-modal.vue
+│      │  │  │      fileStore.vue
+│      │  │  │      honeySwitch.vue
+│      │  │  │      irregular.vue
+│      │  │  │      logCdn.vue
+│      │  │  │      logTransfer.vue
+│      │  │  │      
+│      │  │  └─honeySwitch
+│      │  │      │  alertPop.vue
+│      │  │      │  alertServer.vue
+│      │  │      │  honeySwitch.vue
+│      │  │      │  loginTypeConfig.vue
+│      │  │      │  systemConfig.vue
+│      │  │      │  timeTaskConfig.vue
+│      │  │      │  transportationStrategy.vue
+│      │  │      │  
+│      │  │      ├─alertServerCon
+│      │  │      │      alertEmail.vue
+│      │  │      │      email-modal.vue
+│      │  │      │      fileStore.vue
+│      │  │      │      irregular.vue
+│      │  │      │      logCdn.vue
+│      │  │      │      
+│      │  │      └─honeySwitch
+│      │  │              alertPop.vue
+│      │  │              honeySwitch.vue
+│      │  │              
+│      │  └─systemManagement
+│      │      ├─auditViews
+│      │      │  │  auditEdit.vue
+│      │      │  │  
+│      │      │  └─auditEdit
+│      │      │          auditViews.vue
+│      │      │          
+│      │      ├─cascadeManage
+│      │      │      cascadeManage.vue
+│      │      │      
+│      │      ├─dataMaintenance
+│      │      │      dataMaintenance.vue
+│      │      │      
+│      │      ├─fileForbidden
+│      │      │      fileForbidden.vue
+│      │      │      
+│      │      ├─filetypeManage
+│      │      │      fileType.vue
+│      │      │      
+│      │      ├─licenseManage
+│      │      │      index.vue
+│      │      │      
+│      │      ├─noReason
+│      │      │  │  noReasonEdit.vue
+│      │      │  │  
+│      │      │  └─noReasonShow
+│      │      │          noReasonShow.vue
+│      │      │          
+│      │      ├─organization
+│      │      │      organization.vue
+│      │      │      
+│      │      ├─power
+│      │      │  │  authorIzation.vue
+│      │      │  │  baseEdit.vue
+│      │      │  │  importUser.vue
+│      │      │  │  powerBread.vue
+│      │      │  │  resetPassword.vue
+│      │      │  │  roleEdit.vue
+│      │      │  │  
+│      │      │  ├─roleManage
+│      │      │  │      roleManage.vue  角色管理
+│      │      │  │      
+│      │      │  └─userManage
+│      │      │          userManage.vue 用户管理
+│      │      │          
+│      │      ├─processManage
+│      │      │      edit-modal.vue
+│      │      │      end-modal.vue
+│      │      │      processManage.vue
+│      │      │      record-modal.vue
+│      │      │      
+│      │      ├─registerInfo
+│      │      │      registerInfo.vue
+│      │      │      
+│      │      ├─safeManagementReg
+│      │      │      safeManagementReg.vue
+│      │      │      
+│      │      ├─steganography
+│      │      │      steganography.vue
+│      │      │      
+│      │      ├─systemItem
+│      │      │      systemItem.vue
+│      │      │      
+│      │      ├─upgradeManage
+│      │      │      upgradePackage.vue
+│      │      │      uploadFile.vue
+│      │      │      
+│      │      └─useHelper
+│      │          │  addHelp.vue
+│      │          │  
+│      │          └─addHelp
+│      │                  useHelper.vue
+│      │                  
+│      ├─public
+│      │  │  plugIns.js
+│      │  │  publicComponents.js
+│      │  │  
+│      │  ├─mixin
+│      │  │      mixin.js
+│      │  │      
+│      │  ├─plug-ins
+│      │  │      addLog.js
+│      │  │      errorPlugin.js
+│      │  │      notify.js
+│      │  │      notify.json
+│      │  │      util.js
+│      │  │      vm-select.js
+│      │  │      
+│      │  └─public-components
+│      │          analyzeItem.vue
+│      │          controlProperties.vue
+│      │          duration.vue  保密期限类型组件
+│      │          export-btn.vue
+│      │          filename.vue
+│      │          flagProperties.vue
+│      │          formCommonControl.vue
+│      │          formMarkEdit.vue      标志编辑组件
+│      │          ip-input.vue
+│      │          minitreeMenu.vue
+│      │          progress.vue
+│      │          scopeModal.vue
+│      │          search-condition.vue
+│      │          search-ip.vue
+│      │          search-keys.vue
+│      │          searchLevelStatus.vue
+│      │          searchTime.vue
+│      │          secretBasis.vue
+│      │          treeMenu.vue
+│      │          vm-modal.vue
+│      │          vm-select.vue
+│      │          vm-title.vue
+│      │          
+│      ├─router
+│      │      router.js
+│      │      
+│      ├─server
+│      │  ├─compulsionLabel     强标
+│      │  │  │  app.vue
+│      │  │  │  backend.js
+│      │  │  │  main.js
+│      │  │  │  MarkEdit.js
+│      │  │  │  package_nw.json
+│      │  │  │  README.md
+│      │  │  │  scripts.js
+│      │  │  │  styles.js
+│      │  │  │  webpack.config.js
+│      │  │  │  
+│      │  │  ├─component
+│      │  │  │      duration.vue
+│      │  │  │      filename.vue
+│      │  │  │      formMarkEdit.vue
+│      │  │  │      header.vue
+│      │  │  │      scopeModal.vue
+│      │  │  │      secretBasis.vue
+│      │  │  │      vm-modal.vue
+│      │  │  │      vm-select.vue
+│      │  │  │      vm-title.vue
+│      │  │  │      
+│      │  │  └─public
+│      │  │          util.js
+│      │  │          
+│      │  ├─header
+│      │  │      header.vue
+│      │  │      
+│      │  └─viewlabel   标志查看
+│      │      │  app.vue
+│      │      │  backend.js
+│      │      │  labelFake.js
+│      │      │  labelView.html
+│      │      │  main.js
+│      │      │  package_nw.json
+│      │      │  README.md
+│      │      │  scripts.js
+│      │      │  styles.js
+│      │      │  webpack.config.js
+│      │      │  
+│      │      ├─component
+│      │      │      controlProperties.vue
+│      │      │      flagProperties.vue
+│      │      │      vm-title.vue
+│      │      │      
+│      │      └─public
+│      │              util.js
+│      │              
+│      └─vuex
+│              action.js
+│              getters.js
+│              mutations.js
+│              store.js
+│              
+├─docs
+│      shiti3.14.vpp
+│      
+└─tests
+        download.js
+        
