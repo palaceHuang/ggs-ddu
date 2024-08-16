@@ -431,7 +431,7 @@ JavaScript 中闭包无处不在，你只需要能够识别并拥抱它。
 
 ```js
 function foo() {
-  var a = 3;
+  var a = 2;
 
   function bar() {
     console.log(a);

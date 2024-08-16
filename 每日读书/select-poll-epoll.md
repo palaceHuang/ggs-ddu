@@ -1,0 +1,9 @@
+## select
+
+select会把所有要管理的socket的fd（文件描述符，linux下皆为文件，就是通过fd能找到这个socket）传到内核中
+
+此时，要遍历所有socket，看看是否有感兴趣的事件发生。如果没有一个socket有事件发生，那么select的线程就需要让出cpu阻塞等待，这个等待可以是不设置超时时间的死等，也可以是设置timeout的有超时时间的等待。
+
+假设此时客户端发送了数据，网卡接收到的数据塞到对应的socket的接收队列中，此时socket知道来数据了，那如何唤醒select呢？
+
+其实每个socket有个属于自己的睡眠队列，select会安排一个内应，即在被管理的socket的睡眠队列里面塞入一个entry
