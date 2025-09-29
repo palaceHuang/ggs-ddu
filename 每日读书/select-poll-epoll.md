@@ -1,3 +1,8 @@
+# 搞懂select/poll/epoll
+
+select/poll/epoll都是用来实现多路复用的，即一个线程利用它们即可hold住多个socket
+
+按照这个思路，线程不可被任何一个被管理的socket阻塞，且人一个socket来数据之后都得告知select/poll/epoll线程
 ## select
 
 select会把所有要管理的socket的fd（文件描述符，linux下皆为文件，就是通过fd能找到这个socket）传到内核中
@@ -7,3 +12,26 @@ select会把所有要管理的socket的fd（文件描述符，linux下皆为文�
 假设此时客户端发送了数据，网卡接收到的数据塞到对应的socket的接收队列中，此时socket知道来数据了，那如何唤醒select呢？
 
 其实每个socket有个属于自己的睡眠队列，select会安排一个内应，即在被管理的socket的睡眠队列里面塞入一个entry
+
+当socket接收到网卡的数据后，就会去它的睡眠队列里遍历entry，调用entry设置的callback方法，这个callback方法里就能唤醒select
+
+所以select在每个被它管理的socket的睡眠队列里都塞入一个与它相关的entry，这样无论哪个socket来数据了，它立马就能被唤醒后干活
+
+但是唤醒的select只知道来活了，并不知道具体是哪个socket来数据了，所以只能遍历所有socket来确认，然后把所有来活的socket封装成数据返回
+
+这样用户程序就能获得发生的事件，然后进行I/O和业务处理了
+
+这就是select的实现逻辑
+
+另外就是select的限制，因被管理的socket fd需要从用户空间拷贝到内核空间，为了控制拷贝的大小而做了限制，即每个select能拷贝的fds集合大小只有1024，要修改的话只能修改宏..再重新编译内核（据说确有此宏，值也确为1024，但内核根本没有限制fds集合的大小，而是在glibc那层做了）
+
+## poll
+
+poll比select主要优化了fds的结构，不用管啥1024的限制了
+
+现在也很少人用poll，不再多说
+
+## epoll
+
+这个是重点
+
